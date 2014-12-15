@@ -13,8 +13,10 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return render_template('index.html')
+
 @app.route("/register", methods=['POST'])
-def Authenticate():
+def register():
+    #implement auth
     email = request.form['email']
     uturnmail = request.form['uturnmail']
     notifications = request.form['notifications']
@@ -22,10 +24,22 @@ def Authenticate():
     ## check to see if uturnmail is taken
     ##cursor.execute("SELECT * from User where Username='" + username + "' and Password='" + password + "'")
     ##data = cursor.fetchone()
-    if email is None:
-     return "email is empty"
+    if email or uturnmail or notifications is None:
+     return "please enter all required info"
     else:
-     return "email : " + email + "uturnmail : " + uturnmail + "notifications : " + notifications
+     return "email : " + email + " uturnmail : " + uturnmail + " notifications : " + notifications
+
+@app.route('/contactus', methods=['POST'])
+def contactus():
+    #implement auth
+    name = request.form['name']
+    email = request.form['email']
+    subject = request.form['subject']
+    message = request.form['message']
+    if email or name or subject or message is None:
+     return "please enter all required info"
+    else:
+     return "name : " + name + " email : " + email + " subject : " + subject + " message : " + message
 
 if __name__ == '__main__':
     app.run()
