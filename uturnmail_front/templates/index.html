@@ -14,11 +14,9 @@
 		<script src="/static/js/jquery.min.js"></script>
 		<script src="/static/js/skel.min.js"></script>
 		<script src="/static/js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="/static/css/skel.css" />
-			<link rel="stylesheet" href="/static/css/style.css" />
-			<link rel="stylesheet" href="/static/css/style-wide.css" />
-		</noscript>
+        <link rel="stylesheet" href="/static/css/skel.css" />
+		<link rel="stylesheet" href="/static/css/style.css" />
+   		<link rel="stylesheet" href="/static/css/style-wide.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="/static/css/ie/v8.css" /><![endif]-->
 	</head>
 	<body>
@@ -40,10 +38,26 @@
 			
 				<header class="major container 75%">
 					<h2>COMING 2015</h2>
-					<!--
-					<p>Tellus erat mauris ipsum fermentum<br />
-					etiam vivamus nunc nibh morbi.</p>
-					-->
+               <form method="post" action="/register">
+						<div class="row">
+							<div class="6u 12u(3)">
+								<input type="email" name="email" placeholder="Email" />
+							</div>
+							<div class="6u 12u(3)">
+								<input type="email" name="uturnmail" placeholder="uturnmail" />
+							</div>
+							<div class="6u 12u(3)">
+								<input type="radio" name="notifications" placeholder="notifications" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<ul class="actions">
+									<li><input type="submit" value="Register" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
 				</header>
 
 

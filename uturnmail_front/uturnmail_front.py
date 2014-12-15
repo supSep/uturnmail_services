@@ -12,20 +12,20 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    render_template('index2.html')
+    return render_template('index.html')
 @app.route("/register", methods=['POST'])
 def Authenticate():
-    email = request.args.get('email')
-    uturnmail = request.args.get('uturnmail')
-    notifications = request.args.get('notifications')
-    cursor = mysql.connect().cursor()
+    email = request.form['email']
+    uturnmail = request.form['uturnmail']
+    notifications = request.form['notifications']
+    ##cursor = mysql.connect().cursor()
     ## check to see if uturnmail is taken
     ##cursor.execute("SELECT * from User where Username='" + username + "' and Password='" + password + "'")
-    data = cursor.fetchone()
-    if data is None:
-     return "Username or Password is wrong"
+    ##data = cursor.fetchone()
+    if email is None:
+     return "email is empty"
     else:
-     return "Logged in successfully"
+     return "email : " + email + "uturnmail : " + uturnmail + "notifications : " + notifications
 
 if __name__ == '__main__':
     app.run()
